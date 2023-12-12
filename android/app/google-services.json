@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "801452878226",
+    "firebase_url": "https://shopxchange-36f71-default-rtdb.firebaseio.com",
+    "project_id": "shopxchange-36f71",
+    "storage_bucket": "shopxchange-36f71.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801452878226:android:810e91dfbcf0869374b94b",
+        "android_client_info": {
+          "package_name": "com.mycompany.shopXchange"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801452878226-u3qhbsk2b6bqtph3se2a8lmbd2immcu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPFp_4FLyZ-58tNkblJyGkXx0cxFya-SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801452878226-u3qhbsk2b6bqtph3se2a8lmbd2immcu0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "801452878226-30frptlqbo6ffot65hq48iqhr3hpj89b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.storesaledup"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:801452878226:android:a97fd0bf5f7b4b6074b94b",
+        "android_client_info": {
+          "package_name": "com.mycompany.storesaledup"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "801452878226-5im6j3tsftqrhgvb4ks84ob90qtvnq8g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.storesaledup",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "801452878226-77ff057khojqf6gb890igkf8eim6t2qg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.storesaledup",
+            "certificate_hash": "686a55b182a2f294cd34b6fb507ab44621e94437"
+          }
+        },
+        {
+          "client_id": "801452878226-u3qhbsk2b6bqtph3se2a8lmbd2immcu0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPFp_4FLyZ-58tNkblJyGkXx0cxFya-SM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "801452878226-u3qhbsk2b6bqtph3se2a8lmbd2immcu0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "801452878226-30frptlqbo6ffot65hq48iqhr3hpj89b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.storesaledup"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

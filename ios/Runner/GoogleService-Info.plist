@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>801452878226-saudos32pgo5d47b4ve3vquabhe23o6a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.801452878226-saudos32pgo5d47b4ve3vquabhe23o6a</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>801452878226-5im6j3tsftqrhgvb4ks84ob90qtvnq8g.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDU0QmvIJu55jqrGd7S6Ks77lk2_BIwsMs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>801452878226</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.mycompany.shopXchange</string>
+	<key>PROJECT_ID</key>
+	<string>shopxchange-36f71</string>
+	<key>STORAGE_BUCKET</key>
+	<string>shopxchange-36f71.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:801452878226:ios:ce63f5103365813b74b94b</string>
+	<key>DATABASE_URL</key>
+	<string>https://shopxchange-36f71-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
