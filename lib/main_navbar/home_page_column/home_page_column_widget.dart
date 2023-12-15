@@ -370,7 +370,7 @@ class _HomePageColumnWidgetState extends State<HomePageColumnWidget> {
                                 ),
                                 Container(
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.737,
+                                      MediaQuery.sizeOf(context).height * 0.736,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -754,6 +754,9 @@ class _HomePageColumnWidgetState extends State<HomePageColumnWidget> {
                                         elevation: 1.0,
                                         child: Container(
                                           width: double.infinity,
+                                          height: MediaQuery.sizeOf(context)
+                                                  .height *
+                                              0.68,
                                           decoration: BoxDecoration(
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBackground,
