@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 class HomePageColumnModel extends FlutterFlowModel<HomePageColumnWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final unfocusNode = FocusNode();
   // State field(s) for TextField widget.
   FocusNode? textFieldFocusNode;
   TextEditingController? textController;
@@ -27,7 +26,6 @@ class HomePageColumnModel extends FlutterFlowModel<HomePageColumnWidget> {
 
   @override
   void dispose() {
-    unfocusNode.dispose();
     textFieldFocusNode?.dispose();
     textController?.dispose();
 

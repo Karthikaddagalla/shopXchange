@@ -86,6 +86,35 @@ class FFAppState extends ChangeNotifier {
     _mainPhotoState = value;
   }
 
+  List<String> _deleteProfileImages = [];
+  List<String> get deleteProfileImages => _deleteProfileImages;
+  set deleteProfileImages(List<String> value) {
+    _deleteProfileImages = value;
+  }
+
+  void addToDeleteProfileImages(String value) {
+    _deleteProfileImages.add(value);
+  }
+
+  void removeFromDeleteProfileImages(String value) {
+    _deleteProfileImages.remove(value);
+  }
+
+  void removeAtIndexFromDeleteProfileImages(int index) {
+    _deleteProfileImages.removeAt(index);
+  }
+
+  void updateDeleteProfileImagesAtIndex(
+    int index,
+    String Function(String) updateFn,
+  ) {
+    _deleteProfileImages[index] = updateFn(_deleteProfileImages[index]);
+  }
+
+  void insertAtIndexInDeleteProfileImages(int index, String value) {
+    _deleteProfileImages.insert(index, value);
+  }
+
   final _shopsDocumentHomePageManager =
       FutureRequestManager<List<ShopsRecord>>();
   Future<List<ShopsRecord>> shopsDocumentHomePage({

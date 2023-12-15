@@ -25,20 +25,15 @@ export '/sell_shop/sell_product_price_4/sell_product_price4_widget.dart'
     show SellProductPrice4Widget;
 export '/sell_shop/sell_product_location_5/sell_product_location5_widget.dart'
     show SellProductLocation5Widget;
-export '/sell_shop/copy/copy_widget.dart' show CopyWidget;
 export '/sell_shop/ad_review_success_6/ad_review_success6_widget.dart'
     show AdReviewSuccess6Widget;
 export '/main_navbar/home_page_column/home_page_column_widget.dart'
     show HomePageColumnWidget;
-export '/product_page/product_page_copy/product_page_copy_widget.dart'
-    show ProductPageCopyWidget;
 export '/chats/all_users/all_users_widget.dart' show AllUsersWidget;
 export '/chats/main_chat/main_chat_widget.dart' show MainChatWidget;
 export '/chats/all_active_users/all_active_users_widget.dart'
     show AllActiveUsersWidget;
-export '/main_navbar/home_page_column_copy/home_page_column_copy_widget.dart'
-    show HomePageColumnCopyWidget;
-export '/product_page/product_page_copy2/product_page_copy2_widget.dart'
-    show ProductPageCopy2Widget;
 export '/profile/phone_number_profile/phone_number_profile_widget.dart'
     show PhoneNumberProfileWidget;
+export '/profile/update_existing_profile_details/update_existing_profile_details_widget.dart'
+    show UpdateExistingProfileDetailsWidget;

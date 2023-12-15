@@ -33,6 +33,8 @@ class _CustomNavbarComponentWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => CustomNavbarComponentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -86,7 +88,7 @@ class _CustomNavbarComponentWidgetState
                         context.pushNamed('HomePageColumn');
                       },
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
@@ -114,7 +116,7 @@ class _CustomNavbarComponentWidgetState
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Home',
                                   style: FlutterFlowTheme.of(context)
@@ -150,7 +152,7 @@ class _CustomNavbarComponentWidgetState
                           context.pushNamed('all_users');
                         },
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
@@ -179,7 +181,7 @@ class _CustomNavbarComponentWidgetState
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'Chats',
                                     style: FlutterFlowTheme.of(context)
@@ -217,7 +219,7 @@ class _CustomNavbarComponentWidgetState
                           context.pushNamed('my_ads');
                         },
                         child: Column(
-                          mainAxisSize: MainAxisSize.max,
+                          mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
@@ -246,7 +248,7 @@ class _CustomNavbarComponentWidgetState
                                   borderRadius: BorderRadius.circular(24.0),
                                 ),
                                 child: Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Text(
                                     'My Ads',
                                     style: FlutterFlowTheme.of(context)
@@ -281,7 +283,7 @@ class _CustomNavbarComponentWidgetState
                         context.pushNamed('profile');
                       },
                       child: Column(
-                        mainAxisSize: MainAxisSize.max,
+                        mainAxisSize: MainAxisSize.min,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
@@ -309,7 +311,7 @@ class _CustomNavbarComponentWidgetState
                                 borderRadius: BorderRadius.circular(24.0),
                               ),
                               child: Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Text(
                                   'Profile',
                                   style: FlutterFlowTheme.of(context)
@@ -340,7 +342,7 @@ class _CustomNavbarComponentWidgetState
             ),
           ),
           Align(
-            alignment: const AlignmentDirectional(0.00, -0.80),
+            alignment: const AlignmentDirectional(0.0, -0.8),
             child: InkWell(
               splashColor: Colors.transparent,
               focusColor: Colors.transparent,
@@ -370,7 +372,7 @@ class _CustomNavbarComponentWidgetState
                       shape: BoxShape.circle,
                     ),
                     child: Align(
-                      alignment: const AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Icon(
                         FFIcons.kplus,
                         color: FlutterFlowTheme.of(context).primaryBackground,

@@ -53,6 +53,8 @@ class _MainChatWidgetState extends State<MainChatWidget> {
         setState(() => _chatInfo = info);
       }
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -75,115 +77,118 @@ class _MainChatWidgetState extends State<MainChatWidget> {
 
     context.watch<FFAppState>();
 
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
-          automaticallyImplyLeading: false,
-          leading: FlutterFlowIconButton(
-            borderColor: Colors.transparent,
-            borderRadius: 30.0,
-            borderWidth: 1.0,
-            buttonSize: 60.0,
-            icon: Icon(
-              Icons.arrow_back_rounded,
-              color: FlutterFlowTheme.of(context).primaryBtnText,
-              size: 30.0,
-            ),
-            onPressed: () async {
-              context.pop();
-            },
-          ),
-          title: Text(
-            valueOrDefault<String>(
-              widget.chatUser?.displayName,
-              'Nan',
-            ),
-            style: FlutterFlowTheme.of(context).titleMedium.override(
-                  fontFamily: 'Roboto',
-                  color: FlutterFlowTheme.of(context).primaryBackground,
+    return Title(
+        title: 'main_chat',
+        color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
+        child: GestureDetector(
+          onTap: () => _model.unfocusNode.canRequestFocus
+              ? FocusScope.of(context).requestFocus(_model.unfocusNode)
+              : FocusScope.of(context).unfocus(),
+          child: Scaffold(
+            key: scaffoldKey,
+            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            appBar: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).primary,
+              automaticallyImplyLeading: false,
+              leading: FlutterFlowIconButton(
+                borderColor: Colors.transparent,
+                borderRadius: 30.0,
+                borderWidth: 1.0,
+                buttonSize: 60.0,
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: FlutterFlowTheme.of(context).primaryBtnText,
+                  size: 30.0,
                 ),
-          ),
-          actions: const [],
-          centerTitle: false,
-          elevation: 2.0,
-        ),
-        body: SafeArea(
-          top: true,
-          child: StreamBuilder<FFChatInfo>(
-            stream: FFChatManager.instance.getChatInfo(
-              otherUserRecord: widget.chatUser,
-              chatReference: widget.chatRef,
+                onPressed: () async {
+                  context.pop();
+                },
+              ),
+              title: Text(
+                valueOrDefault<String>(
+                  widget.chatUser?.displayName,
+                  'Nan',
+                ),
+                style: FlutterFlowTheme.of(context).titleMedium.override(
+                      fontFamily: 'Roboto',
+                      color: FlutterFlowTheme.of(context).primaryBackground,
+                    ),
+              ),
+              actions: const [],
+              centerTitle: false,
+              elevation: 2.0,
             ),
-            builder: (context, snapshot) => snapshot.hasData
-                ? FFChatPage(
-                    chatInfo: snapshot.data!,
-                    allowImages: true,
-                    backgroundColor:
-                        FlutterFlowTheme.of(context).primaryBackground,
-                    timeDisplaySetting: TimeDisplaySetting.alwaysVisible,
-                    currentUserBoxDecoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(
-                        color: Colors.transparent,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    otherUsersBoxDecoration: BoxDecoration(
-                      color: const Color(0xFF4B39EF),
-                      border: Border.all(
-                        color: Colors.transparent,
-                      ),
-                      borderRadius: BorderRadius.circular(8.0),
-                    ),
-                    currentUserTextStyle: GoogleFonts.getFont(
-                      'Lexend Deca',
-                      color: const Color(0xFF1E2429),
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.0,
-                      fontStyle: FontStyle.normal,
-                    ),
-                    otherUsersTextStyle: GoogleFonts.getFont(
-                      'Lexend Deca',
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 14.0,
-                    ),
-                    inputHintTextStyle: GoogleFonts.getFont(
-                      'Lexend Deca',
-                      color: const Color(0xFF95A1AC),
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14.0,
-                    ),
-                    inputTextStyle: GoogleFonts.getFont(
-                      'Lexend Deca',
-                      color: Colors.black,
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14.0,
-                    ),
-                    emptyChatWidget: const Center(
-                      child: EmptyChatWidget(),
-                    ),
-                  )
-                : Center(
-                    child: SizedBox(
-                      width: 50.0,
-                      height: 50.0,
-                      child: CircularProgressIndicator(
-                        valueColor: AlwaysStoppedAnimation<Color>(
-                          FlutterFlowTheme.of(context).primary,
+            body: SafeArea(
+              top: true,
+              child: StreamBuilder<FFChatInfo>(
+                stream: FFChatManager.instance.getChatInfo(
+                  otherUserRecord: widget.chatUser,
+                  chatReference: widget.chatRef,
+                ),
+                builder: (context, snapshot) => snapshot.hasData
+                    ? FFChatPage(
+                        chatInfo: snapshot.data!,
+                        allowImages: true,
+                        backgroundColor:
+                            FlutterFlowTheme.of(context).primaryBackground,
+                        timeDisplaySetting: TimeDisplaySetting.alwaysVisible,
+                        currentUserBoxDecoration: BoxDecoration(
+                          color: Colors.white,
+                          border: Border.all(
+                            color: Colors.transparent,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        otherUsersBoxDecoration: BoxDecoration(
+                          color: const Color(0xFF4B39EF),
+                          border: Border.all(
+                            color: Colors.transparent,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        currentUserTextStyle: GoogleFonts.getFont(
+                          'Lexend Deca',
+                          color: const Color(0xFF1E2429),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14.0,
+                          fontStyle: FontStyle.normal,
+                        ),
+                        otherUsersTextStyle: GoogleFonts.getFont(
+                          'Lexend Deca',
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14.0,
+                        ),
+                        inputHintTextStyle: GoogleFonts.getFont(
+                          'Lexend Deca',
+                          color: const Color(0xFF95A1AC),
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14.0,
+                        ),
+                        inputTextStyle: GoogleFonts.getFont(
+                          'Lexend Deca',
+                          color: Colors.black,
+                          fontWeight: FontWeight.normal,
+                          fontSize: 14.0,
+                        ),
+                        emptyChatWidget: const Center(
+                          child: EmptyChatWidget(),
+                        ),
+                      )
+                    : Center(
+                        child: SizedBox(
+                          width: 50.0,
+                          height: 50.0,
+                          child: CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation<Color>(
+                              FlutterFlowTheme.of(context).primary,
+                            ),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
+              ),
+            ),
           ),
-        ),
-      ),
-    );
+        ));
   }
 }

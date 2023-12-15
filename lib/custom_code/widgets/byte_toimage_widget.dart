@@ -93,13 +93,13 @@ class _ByteToimageWidgetState extends State<ByteToimageWidget> {
                   ),
                 ),
                 Positioned(
-                  top: 5,
+                  top: 10,
                   left: 40,
                   child: Visibility(
                     visible: selectedImageIndex == index,
                     child: Container(
-                      width: 90,
-                      height: 25,
+                      width: 80,
+                      height: 20,
                       decoration: BoxDecoration(
                         color: Colors.green,
                         borderRadius: BorderRadius.circular(12.0),
@@ -110,6 +110,7 @@ class _ByteToimageWidgetState extends State<ByteToimageWidget> {
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
+                            fontSize: 10.0,
                           ),
                         ),
                       ),

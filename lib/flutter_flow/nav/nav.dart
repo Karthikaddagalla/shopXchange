@@ -210,11 +210,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'Copy',
-          path: '/copy',
-          builder: (context, params) => const CopyWidget(),
-        ),
-        FFRoute(
           name: 'ad_review_success_6',
           path: '/adReviewSuccess6',
           builder: (context, params) => const AdReviewSuccess6Widget(),
@@ -223,16 +218,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'HomePageColumn',
           path: '/homePageColumn',
           builder: (context, params) => const HomePageColumnWidget(),
-        ),
-        FFRoute(
-          name: 'Product_PageCopy',
-          path: '/productPageCopy',
-          asyncParams: {
-            'shopDetails': getDoc(['shops'], ShopsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ProductPageCopyWidget(
-            shopDetails: params.getParam('shopDetails', ParamType.Document),
-          ),
         ),
         FFRoute(
           name: 'all_users',
@@ -257,24 +242,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => const AllActiveUsersWidget(),
         ),
         FFRoute(
-          name: 'HomePageColumnCopy',
-          path: '/homePageColumnCopy',
-          builder: (context, params) => const HomePageColumnCopyWidget(),
-        ),
-        FFRoute(
-          name: 'Product_PageCopy2',
-          path: '/productPageCopy2',
-          asyncParams: {
-            'shopDetails': getDoc(['shops'], ShopsRecord.fromSnapshot),
-          },
-          builder: (context, params) => ProductPageCopy2Widget(
-            shopDetails: params.getParam('shopDetails', ParamType.Document),
-          ),
-        ),
-        FFRoute(
           name: 'PhoneNumberProfile',
           path: '/phoneNumberProfile',
           builder: (context, params) => PhoneNumberProfileWidget(
+            phone: params.getParam('phone', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'updateExistingProfileDetails',
+          path: '/updateExistingProfileDetails',
+          builder: (context, params) => UpdateExistingProfileDetailsWidget(
             phone: params.getParam('phone', ParamType.String),
           ),
         )
@@ -471,13 +448,20 @@ class FFRoute {
                   key: state.pageKey,
                   child: child,
                   transitionDuration: transitionInfo.duration,
-                  transitionsBuilder: PageTransition(
+                  transitionsBuilder:
+                      (context, animation, secondaryAnimation, child) =>
+                          PageTransition(
                     type: transitionInfo.transitionType,
                     duration: transitionInfo.duration,
                     reverseDuration: transitionInfo.duration,
                     alignment: transitionInfo.alignment,
                     child: child,
-                  ).transitionsBuilder,
+                  ).buildTransitions(
+                    context,
+                    animation,
+                    secondaryAnimation,
+                    child,
+                  ),
                 )
               : MaterialPage(key: state.pageKey, child: child);
         },

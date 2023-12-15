@@ -11,6 +11,7 @@ import 'schema/shops_record.dart';
 import 'schema/chats_record.dart';
 import 'schema/test_collection_all_users_record.dart';
 import 'schema/test_main_chats_record.dart';
+import 'schema/profile_images_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -24,6 +25,7 @@ export 'schema/shops_record.dart';
 export 'schema/chats_record.dart';
 export 'schema/test_collection_all_users_record.dart';
 export 'schema/test_main_chats_record.dart';
+export 'schema/profile_images_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Future<int> queryUsersRecordCount({
@@ -243,6 +245,43 @@ Future<List<TestMainChatsRecord>> queryTestMainChatsRecordOnce({
     queryCollectionOnce(
       TestMainChatsRecord.collection,
       TestMainChatsRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query ProfileImagesRecords (as a Stream and as a Future).
+Future<int> queryProfileImagesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ProfileImagesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ProfileImagesRecord>> queryProfileImagesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ProfileImagesRecord.collection,
+      ProfileImagesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ProfileImagesRecord>> queryProfileImagesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ProfileImagesRecord.collection,
+      ProfileImagesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

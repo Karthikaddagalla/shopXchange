@@ -44,6 +44,8 @@ class _SellUploadShopImages3WidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => SellUploadShopImages3Model());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -66,248 +68,249 @@ class _SellUploadShopImages3WidgetState
 
     context.watch<FFAppState>();
 
-    return Scaffold(
-      key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(100.0),
-        child: AppBar(
+    return Title(
+        title: 'sell_UploadShopImages_3',
+        color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
+        child: Scaffold(
+          key: scaffoldKey,
           backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-          automaticallyImplyLeading: false,
-          actions: const [],
-          flexibleSpace: FlexibleSpaceBar(
-            title: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 14.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 50.0,
-                            icon: Icon(
-                              Icons.arrow_back_rounded,
-                              color: FlutterFlowTheme.of(context).primaryText,
-                              size: 30.0,
-                            ),
-                            onPressed: () async {
-                              context.safePop();
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
-                    child: Text(
-                      'Upload Images',
-                      style:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
-                                color: FlutterFlowTheme.of(context).primaryText,
-                                fontSize: 22.0,
-                              ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            centerTitle: true,
-            expandedTitleScale: 1.0,
-          ),
-          elevation: 0.0,
-        ),
-      ),
-      body: SafeArea(
-        top: true,
-        child: Column(
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 16.0),
-              child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      final selectedMedia = await selectMedia(
-                        maxWidth: 300.00,
-                        maxHeight: 500.00,
-                        mediaSource: MediaSource.photoGallery,
-                        multiImage: true,
-                      );
-                      if (selectedMedia != null &&
-                          selectedMedia.every((m) =>
-                              validateFileFormat(m.storagePath, context))) {
-                        setState(() => _model.isDataUploading = true);
-                        var selectedUploadedFiles = <FFUploadedFile>[];
-
-                        try {
-                          selectedUploadedFiles = selectedMedia
-                              .map((m) => FFUploadedFile(
-                                    name: m.storagePath.split('/').last,
-                                    bytes: m.bytes,
-                                    height: m.dimensions?.height,
-                                    width: m.dimensions?.width,
-                                    blurHash: m.blurHash,
-                                  ))
-                              .toList();
-                        } finally {
-                          _model.isDataUploading = false;
-                        }
-                        if (selectedUploadedFiles.length ==
-                            selectedMedia.length) {
-                          setState(() {
-                            _model.uploadedLocalFiles = selectedUploadedFiles;
-                          });
-                        } else {
-                          setState(() {});
-                          return;
-                        }
-                      }
-                    },
-                    child: Container(
-                      width: 100.0,
-                      height: 100.0,
-                      decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).primaryBackground,
-                        shape: BoxShape.circle,
-                        border: Border.all(
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                        ),
-                      ),
-                      child: Column(
+          appBar: PreferredSize(
+            preferredSize: const Size.fromHeight(100.0),
+            child: AppBar(
+              backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+              automaticallyImplyLeading: false,
+              actions: const [],
+              flexibleSpace: FlexibleSpaceBar(
+                title: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 5.0),
+                      child: Row(
                         mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.cloudUploadAlt,
-                              color: FlutterFlowTheme.of(context).secondaryText,
-                              size: 24.0,
+                                12.0, 0.0, 0.0, 0.0),
+                            child: FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 1.0,
+                              buttonSize: 50.0,
+                              icon: Icon(
+                                Icons.arrow_back_rounded,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 30.0,
+                              ),
+                              onPressed: () async {
+                                context.safePop();
+                              },
                             ),
-                          ),
-                          Text(
-                            'Upload',
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Roboto',
-                                  fontSize: 12.0,
-                                ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  Text(
-                    FFAppState().mainPhotoState.toString(),
-                    style: FlutterFlowTheme.of(context).bodyMedium,
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              width: MediaQuery.sizeOf(context).width * 1.0,
-              height: MediaQuery.sizeOf(context).height * 0.58,
-              child: custom_widgets.ByteToimageWidget(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 0.58,
-                assets: _model.uploadedLocalFiles,
-              ),
-            ),
-            Align(
-              alignment: const AlignmentDirectional(0.00, 0.05),
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
-                child: FFButtonWidget(
-                  onPressed: () async {
-                    context.pushNamed(
-                      'sell_product_price_4',
-                      queryParameters: {
-                        'adName': serializeParam(
-                          widget.adName,
-                          ParamType.String,
-                        ),
-                        'adCategory': serializeParam(
-                          widget.adCategory,
-                          ParamType.String,
-                        ),
-                        'shopSize': serializeParam(
-                          widget.shopSize,
-                          ParamType.int,
-                        ),
-                        'description': serializeParam(
-                          widget.description,
-                          ParamType.String,
-                        ),
-                        'typeOfPreviousShop': serializeParam(
-                          widget.typeOfPreviousShop,
-                          ParamType.String,
-                        ),
-                        'selectedImages': serializeParam(
-                          _model.uploadedLocalFiles,
-                          ParamType.FFUploadedFile,
-                          true,
-                        ),
-                        'isPreviousShopExists': serializeParam(
-                          widget.isPreviousShopExists,
-                          ParamType.String,
-                        ),
-                      }.withoutNulls,
-                    );
-                  },
-                  text: 'Enter Location',
-                  icon: const Icon(
-                    Icons.arrow_forward_rounded,
-                    size: 15.0,
-                  ),
-                  options: FFButtonOptions(
-                    width: 270.0,
-                    height: 50.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    iconPadding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).primary,
-                    textStyle:
-                        FlutterFlowTheme.of(context).titleMedium.override(
-                              fontFamily: 'Roboto',
-                              color: Colors.white,
+                    Padding(
+                      padding:
+                          const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 0.0, 0.0),
+                      child: Text(
+                        'Upload Images',
+                        style: FlutterFlowTheme.of(context)
+                            .headlineMedium
+                            .override(
+                              fontFamily: 'Outfit',
+                              color: FlutterFlowTheme.of(context).primaryText,
+                              fontSize: 22.0,
                             ),
-                    elevation: 2.0,
-                    borderSide: const BorderSide(
-                      color: Colors.transparent,
-                      width: 1.0,
+                      ),
                     ),
-                    borderRadius: BorderRadius.circular(12.0),
+                  ],
+                ),
+                centerTitle: true,
+                expandedTitleScale: 1.0,
+              ),
+              elevation: 0.0,
+            ),
+          ),
+          body: SafeArea(
+            top: true,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 16.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        splashColor: Colors.transparent,
+                        focusColor: Colors.transparent,
+                        hoverColor: Colors.transparent,
+                        highlightColor: Colors.transparent,
+                        onTap: () async {
+                          final selectedMedia = await selectMedia(
+                            maxWidth: 300.00,
+                            maxHeight: 500.00,
+                            mediaSource: MediaSource.photoGallery,
+                            multiImage: true,
+                          );
+                          if (selectedMedia != null &&
+                              selectedMedia.every((m) =>
+                                  validateFileFormat(m.storagePath, context))) {
+                            setState(() => _model.isDataUploading = true);
+                            var selectedUploadedFiles = <FFUploadedFile>[];
+
+                            try {
+                              selectedUploadedFiles = selectedMedia
+                                  .map((m) => FFUploadedFile(
+                                        name: m.storagePath.split('/').last,
+                                        bytes: m.bytes,
+                                        height: m.dimensions?.height,
+                                        width: m.dimensions?.width,
+                                        blurHash: m.blurHash,
+                                      ))
+                                  .toList();
+                            } finally {
+                              _model.isDataUploading = false;
+                            }
+                            if (selectedUploadedFiles.length ==
+                                selectedMedia.length) {
+                              setState(() {
+                                _model.uploadedLocalFiles =
+                                    selectedUploadedFiles;
+                              });
+                            } else {
+                              setState(() {});
+                              return;
+                            }
+                          }
+                        },
+                        child: Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
+                            color:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            shape: BoxShape.circle,
+                            border: Border.all(
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FaIcon(
+                                  FontAwesomeIcons.cloudUploadAlt,
+                                  color: FlutterFlowTheme.of(context)
+                                      .secondaryText,
+                                  size: 24.0,
+                                ),
+                              ),
+                              Text(
+                                'Upload',
+                                textAlign: TextAlign.center,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Roboto',
+                                      fontSize: 12.0,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 0.58,
+                  child: custom_widgets.ByteToimageWidget(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 0.58,
+                    assets: _model.uploadedLocalFiles,
+                  ),
+                ),
+                Align(
+                  alignment: const AlignmentDirectional(0.0, 0.05),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed(
+                          'sell_product_price_4',
+                          queryParameters: {
+                            'adName': serializeParam(
+                              widget.adName,
+                              ParamType.String,
+                            ),
+                            'adCategory': serializeParam(
+                              widget.adCategory,
+                              ParamType.String,
+                            ),
+                            'shopSize': serializeParam(
+                              widget.shopSize,
+                              ParamType.int,
+                            ),
+                            'description': serializeParam(
+                              widget.description,
+                              ParamType.String,
+                            ),
+                            'typeOfPreviousShop': serializeParam(
+                              widget.typeOfPreviousShop,
+                              ParamType.String,
+                            ),
+                            'selectedImages': serializeParam(
+                              _model.uploadedLocalFiles,
+                              ParamType.FFUploadedFile,
+                              true,
+                            ),
+                            'isPreviousShopExists': serializeParam(
+                              widget.isPreviousShopExists,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
+                      },
+                      text: 'Enter Location',
+                      icon: const Icon(
+                        Icons.arrow_forward_rounded,
+                        size: 15.0,
+                      ),
+                      options: FFButtonOptions(
+                        width: 270.0,
+                        height: 50.0,
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding: const EdgeInsets.all(0.0),
+                        color: FlutterFlowTheme.of(context).primary,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: 'Roboto',
+                                  color: Colors.white,
+                                ),
+                        elevation: 2.0,
+                        borderSide: const BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
+                        ),
+                        borderRadius: BorderRadius.circular(12.0),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
-      ),
-    );
+          ),
+        ));
   }
 }
